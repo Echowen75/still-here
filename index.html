@@ -10,6 +10,16 @@
         content="width=device-width, initial-scale=1.0"
     >
 
+    <meta
+        name="theme-color"
+        content="#111827"
+    >
+
+    <meta
+        name="description"
+        content="Still Here — a place to check in, reflect, and find support."
+    >
+
     <title>Still Here</title>
 
     <link rel="stylesheet" href="style.css">
@@ -19,461 +29,975 @@
 
 <body>
 
-    <main class="container">
+    <!-- =========================================
+         LOGIN / ACCOUNT SCREEN
+         ========================================= -->
 
-        <h1>Still Here</h1>
+    <div
+        id="authScreen"
+        class="authScreen"
+    >
 
-        <p class="subtitle">
-            You matter. Take a moment to check in with yourself.
-        </p>
+        <div class="authCard">
 
+            <div class="authLogo">
+                ❤️
+            </div>
 
-        <!-- NAVIGATION -->
+            <h1>Still Here</h1>
 
-        <nav class="mainNavigation">
+            <p class="authSubtitle">
+                A place to pause, check in, and remember
+                that you don't have to face everything alone.
+            </p>
 
-            <button onclick="showPage('checkInPage')">
-                🏠 Check In
-            </button>
 
-            <button onclick="showPage('journalPage')">
-                📝 Journal
-            </button>
+            <!-- LOGIN -->
 
-            <button onclick="showPage('historyPage')">
-                📅 History
-            </button>
+            <div id="loginForm">
 
-            <button onclick="showPage('supportPage')">
-                ❤️ Support
-            </button>
+                <h2>Welcome back</h2>
 
-            <button onclick="showPage('resourcesPage')">
-                📚 Resources
-            </button>
-
-        </nav>
-
-
-        <!-- CHECK-IN PAGE -->
-
-        <section id="checkInPage" class="page">
-
-            <!-- FEELING SECTION -->
-
-            <section id="checkInSection">
-
-                <h2>
-                    How are you feeling today?
-                </h2>
-
-                <p class="sectionDescription">
-                    There is no wrong answer. Choose whatever feels closest to how you feel right now.
-                </p>
-
-
-                <div class="feelings">
-
-                    <button onclick="selectFeeling('Good')">
-                        😊 Good
-                    </button>
-
-                    <button onclick="selectFeeling('Okay')">
-                        🙂 Okay
-                    </button>
-
-                    <button onclick="selectFeeling('Sad')">
-                        😔 Sad
-                    </button>
-
-                    <button onclick="selectFeeling('Stressed')">
-                        😣 Stressed
-                    </button>
-
-                    <button onclick="selectFeeling('Angry')">
-                        😡 Angry
-                    </button>
-
-                    <button onclick="selectFeeling('Lonely')">
-                        🫂 Lonely
-                    </button>
-
-                    <button onclick="selectFeeling('Anxious')">
-                        😰 Anxious
-                    </button>
-
-                    <button onclick="selectFeeling('Overwhelmed')">
-                        🌊 Overwhelmed
-                    </button>
-
-                    <button onclick="selectFeeling('Numb')">
-                        😶 Numb
-                    </button>
-
-                    <button onclick="selectFeeling('Confused')">
-                        😕 Confused
-                    </button>
-
-                    <button onclick="selectFeeling('Exhausted')">
-                        😴 Exhausted
-                    </button>
-
-                    <button onclick="selectFeeling('Excited')">
-                        🥳 Excited
-                    </button>
-
-                    <button onclick="selectFeeling('Grateful')">
-                        🙏 Grateful
-                    </button>
-
-                    <button onclick="selectFeeling('Hopeful')">
-                        🌱 Hopeful
-                    </button>
-
-                </div>
-
-            </section>
-
-
-            <!-- FAITH SECTION -->
-
-            <section
-                id="faithSection"
-                class="hidden"
-            >
-
-                <h2>
-                    Would you like faith-based encouragement?
-                </h2>
-
-                <p class="sectionDescription">
-                    Choose what feels right for you. You can change this anytime.
-                </p>
-
-
-                <div class="faithOptions">
-
-                    <button onclick="selectFaith('Christian')">
-                        ✝️ Christian
-                    </button>
-
-                    <button onclick="selectFaith('Muslim')">
-                        ☪️ Muslim
-                    </button>
-
-                    <button onclick="selectFaith('Jewish')">
-                        ✡️ Jewish
-                    </button>
-
-                    <button onclick="selectFaith('Hindu')">
-                        🕉️ Hindu
-                    </button>
-
-                    <button onclick="selectFaith('Other')">
-                        🌎 Another faith
-                    </button>
-
-                    <button onclick="selectFaith('None')">
-                        🚫 No religious content
-                    </button>
-
-                    <button onclick="selectFaith('Unsure')">
-                        🤷 I'm not sure
-                    </button>
-
-                </div>
-
-            </section>
-
-
-            <!-- SUPPORT CHOICE SECTION -->
-
-            <section
-                id="supportChoiceSection"
-                class="hidden"
-            >
-
-                <h2>
-                    What would help right now?
-                </h2>
-
-                <p class="sectionDescription">
-                    You choose what happens next. There is no pressure to pick one.
-                </p>
-
-
-                <div class="supportChoices">
-
-                    <button onclick="chooseSupport('talk')">
-                        💬 I want to talk about it
-                    </button>
-
-                    <button onclick="chooseSupport('write')">
-                        📝 I want to write about it
-                    </button>
-
-                    <button onclick="chooseSupport('reach')">
-                        🤝 I want to reach someone
-                    </button>
-
-                    <button onclick="chooseSupport('faith')">
-                        📖 I'd like faith-based encouragement
-                    </button>
-
-                </div>
-
-            </section>
-
-
-            <!-- RESPONSE SECTION -->
-
-            <section
-                id="responseSection"
-                class="hidden"
-            >
-
-                <h2 id="responseTitle"></h2>
-
-                <p id="responseMessage"></p>
-
-
-                <div
-                    id="verseCard"
-                    class="verseCard hidden"
+                <input
+                    id="loginUsername"
+                    type="text"
+                    placeholder="Username"
+                    autocomplete="username"
                 >
 
-                    <p id="verseText"></p>
+                <input
+                    id="loginPassword"
+                    type="password"
+                    placeholder="Password"
+                    autocomplete="current-password"
+                >
 
-                    <p id="verseReference"></p>
+                <button
+                    class="primaryButton"
+                    onclick="loginUser()"
+                >
+                    Sign In
+                </button>
+
+                <p
+                    id="loginError"
+                    class="formError"
+                ></p>
+
+                <button
+                    class="textButton"
+                    onclick="showCreateAccount()"
+                >
+                    Create an account
+                </button>
+
+                <button
+                    class="guestButton"
+                    onclick="continueAsGuest()"
+                >
+                    Continue as Guest
+                </button>
+
+            </div>
+
+
+            <!-- CREATE ACCOUNT -->
+
+            <div
+                id="createAccountForm"
+                class="hidden"
+            >
+
+                <h2>Create your account</h2>
+
+                <p class="smallText">
+                    For this local version, your account stays
+                    on this browser. We'll connect real secure
+                    accounts later.
+                </p>
+
+                <input
+                    id="createUsername"
+                    type="text"
+                    placeholder="Choose a username"
+                    autocomplete="username"
+                >
+
+                <input
+                    id="createPassword"
+                    type="password"
+                    placeholder="Create a password"
+                    autocomplete="new-password"
+                >
+
+                <input
+                    id="confirmPassword"
+                    type="password"
+                    placeholder="Confirm your password"
+                    autocomplete="new-password"
+                >
+
+                <button
+                    class="primaryButton"
+                    onclick="createAccount()"
+                >
+                    Create Account
+                </button>
+
+                <p
+                    id="createError"
+                    class="formError"
+                ></p>
+
+                <button
+                    class="textButton"
+                    onclick="showLogin()"
+                >
+                    ← Back to Sign In
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         MAIN APP
+         ========================================= -->
+
+    <div
+        id="app"
+        class="hidden"
+    >
+
+        <main class="container">
+
+
+            <!-- HEADER -->
+
+            <header class="appHeader">
+
+                <div>
+
+                    <h1>
+                        Still Here
+                    </h1>
+
+                    <p class="subtitle">
+                        You matter. Take a moment to check in with yourself.
+                    </p>
 
                 </div>
+
+
+                <div class="accountArea">
+
+                    <span id="welcomeUsername">
+                        Guest
+                    </span>
+
+                    <button
+                        class="smallButton"
+                        onclick="logoutUser()"
+                    >
+                        Log Out
+                    </button>
+
+                </div>
+
+            </header>
+
+
+
+            <!-- NAVIGATION -->
+
+            <nav class="mainNavigation">
+
+                <button onclick="showPage('checkInPage')">
+                    🏠 Check In
+                </button>
+
+                <button onclick="showPage('journalPage')">
+                    📝 Journal
+                </button>
+
+                <button onclick="showPage('historyPage')">
+                    📅 History
+                </button>
+
+                <button onclick="showPage('toolsPage')">
+                    🧰 Tools
+                </button>
+
+                <button onclick="showPage('supportPage')">
+                    ❤️ Support
+                </button>
+
+                <button onclick="showPage('resourcesPage')">
+                    📚 Resources
+                </button>
+
+                <button onclick="showPage('settingsPage')">
+                    ⚙️ Settings
+                </button>
+
+            </nav>
+
+
+
+            <!-- =========================================
+                 CHECK-IN PAGE
+                 ========================================= -->
+
+            <section
+                id="checkInPage"
+                class="page"
+            >
+
+                <section id="checkInSection">
+
+                    <h2>
+                        How are you feeling today?
+                    </h2>
+
+                    <p class="sectionDescription">
+                        There is no wrong answer. Choose whatever
+                        feels closest to how you feel right now.
+                    </p>
+
+
+                    <div class="feelings">
+
+                        <button onclick="selectFeeling('Good')">
+                            😊 Good
+                        </button>
+
+                        <button onclick="selectFeeling('Okay')">
+                            🙂 Okay
+                        </button>
+
+                        <button onclick="selectFeeling('Sad')">
+                            😔 Sad
+                        </button>
+
+                        <button onclick="selectFeeling('Stressed')">
+                            😣 Stressed
+                        </button>
+
+                        <button onclick="selectFeeling('Angry')">
+                            😡 Angry
+                        </button>
+
+                        <button onclick="selectFeeling('Lonely')">
+                            🫂 Lonely
+                        </button>
+
+                        <button onclick="selectFeeling('Anxious')">
+                            😰 Anxious
+                        </button>
+
+                        <button onclick="selectFeeling('Overwhelmed')">
+                            🌊 Overwhelmed
+                        </button>
+
+                        <button onclick="selectFeeling('Numb')">
+                            😶 Numb
+                        </button>
+
+                        <button onclick="selectFeeling('Confused')">
+                            😕 Confused
+                        </button>
+
+                        <button onclick="selectFeeling('Exhausted')">
+                            😴 Exhausted
+                        </button>
+
+                        <button onclick="selectFeeling('Excited')">
+                            🥳 Excited
+                        </button>
+
+                        <button onclick="selectFeeling('Grateful')">
+                            🙏 Grateful
+                        </button>
+
+                        <button onclick="selectFeeling('Hopeful')">
+                            🌱 Hopeful
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- EXTRA CHECK-IN DETAILS -->
+
+                <section
+                    id="moodDetailsSection"
+                    class="hidden"
+                >
+
+                    <h2>
+                        Tell me a little more
+                    </h2>
+
+                    <p class="sectionDescription">
+                        You can keep this simple.
+                    </p>
+
+
+                    <h3>
+                        How strongly are you feeling this?
+                    </h3>
+
+
+                    <div class="moodScale">
+
+                        <button onclick="selectIntensity(1)">
+                            1
+                        </button>
+
+                        <button onclick="selectIntensity(2)">
+                            2
+                        </button>
+
+                        <button onclick="selectIntensity(3)">
+                            3
+                        </button>
+
+                        <button onclick="selectIntensity(4)">
+                            4
+                        </button>
+
+                        <button onclick="selectIntensity(5)">
+                            5
+                        </button>
+
+                        <button onclick="selectIntensity(6)">
+                            6
+                        </button>
+
+                        <button onclick="selectIntensity(7)">
+                            7
+                        </button>
+
+                        <button onclick="selectIntensity(8)">
+                            8
+                        </button>
+
+                        <button onclick="selectIntensity(9)">
+                            9
+                        </button>
+
+                        <button onclick="selectIntensity(10)">
+                            10
+                        </button>
+
+                    </div>
+
+
+                    <h3>
+                        What's affecting you?
+                    </h3>
+
+
+                    <div class="situationOptions">
+
+                        <button onclick="selectSituation('School')">
+                            🏫 School
+                        </button>
+
+                        <button onclick="selectSituation('Family')">
+                            🏠 Family
+                        </button>
+
+                        <button onclick="selectSituation('Friends')">
+                            🫂 Friends
+                        </button>
+
+                        <button onclick="selectSituation('Relationship')">
+                            ❤️ Relationship
+                        </button>
+
+                        <button onclick="selectSituation('Loneliness')">
+                            🌙 Loneliness
+                        </button>
+
+                        <button onclick="selectSituation('Stress')">
+                            😵 Stress
+                        </button>
+
+                        <button onclick="selectSituation('Nothing specific')">
+                            🌱 Nothing specific
+                        </button>
+
+                    </div>
+
+
+                    <textarea
+                        id="checkInNote"
+                        rows="4"
+                        placeholder="Want to say a little more? This is optional."
+                    ></textarea>
+
+
+                    <button
+                        class="primaryButton"
+                        onclick="continueCheckIn()"
+                    >
+                        Continue →
+                    </button>
+
+                </section>
+
+
+
+                <!-- FAITH -->
+
+                <section
+                    id="faithSection"
+                    class="hidden"
+                >
+
+                    <h2>
+                        Would you like faith-based encouragement?
+                    </h2>
+
+                    <p class="sectionDescription">
+                        Choose what feels right for you.
+                        You can change this anytime.
+                    </p>
+
+
+                    <div class="faithOptions">
+
+                        <button onclick="selectFaith('Christian')">
+                            ✝️ Christian
+                        </button>
+
+                        <button onclick="selectFaith('Muslim')">
+                            ☪️ Muslim
+                        </button>
+
+                        <button onclick="selectFaith('Jewish')">
+                            ✡️ Jewish
+                        </button>
+
+                        <button onclick="selectFaith('Hindu')">
+                            🕉️ Hindu
+                        </button>
+
+                        <button onclick="selectFaith('Other')">
+                            🌎 Another faith
+                        </button>
+
+                        <button onclick="selectFaith('None')">
+                            🚫 No religious content
+                        </button>
+
+                        <button onclick="selectFaith('Unsure')">
+                            🤷 I'm not sure
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- SUPPORT CHOICE -->
+
+                <section
+                    id="supportChoiceSection"
+                    class="hidden"
+                >
+
+                    <h2>
+                        What would help right now?
+                    </h2>
+
+                    <p class="sectionDescription">
+                        You choose what happens next.
+                    </p>
+
+
+                    <div class="supportChoices">
+
+                        <button onclick="chooseSupport('talk')">
+                            💬 I want to talk about it
+                        </button>
+
+                        <button onclick="chooseSupport('write')">
+                            📝 I want to write about it
+                        </button>
+
+                        <button onclick="chooseSupport('reach')">
+                            🤝 I want to reach someone
+                        </button>
+
+                        <button onclick="chooseSupport('faith')">
+                            📖 I'd like faith-based encouragement
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- RESPONSE -->
+
+                <section
+                    id="responseSection"
+                    class="hidden"
+                >
+
+                    <h2 id="responseTitle"></h2>
+
+                    <p id="responseMessage"></p>
+
+
+                    <div
+                        id="verseCard"
+                        class="verseCard hidden"
+                    >
+
+                        <p id="verseText"></p>
+
+                        <p id="verseReference"></p>
+
+                    </div>
+
+
+                    <button
+                        class="backButton"
+                        onclick="goBack()"
+                    >
+                        ← Check in again
+                    </button>
+
+                </section>
+
+            </section>
+
+
+
+            <!-- =========================================
+                 JOURNAL
+                 ========================================= -->
+
+            <section
+                id="journalPage"
+                class="page hidden"
+            >
+
+                <h2>
+                    Your Journal
+                </h2>
+
+                <p class="sectionDescription">
+                    Write whatever is on your mind.
+                </p>
+
+
+                <button
+                    class="secondaryButton"
+                    onclick="showJournalPrompt()"
+                >
+                    💭 Give Me a Prompt
+                </button>
+
+
+                <textarea
+                    id="journalInput"
+                    rows="8"
+                    placeholder="Write what's on your mind..."
+                ></textarea>
+
+
+                <button
+                    class="primaryButton"
+                    onclick="saveJournalEntry()"
+                >
+                    💾 Save Entry
+                </button>
+
+
+                <div id="journalEntries"></div>
+
+            </section>
+
+
+
+            <!-- =========================================
+                 HISTORY
+                 ========================================= -->
+
+            <section
+                id="historyPage"
+                class="page hidden"
+            >
+
+                <h2>
+                    Your Check-In History
+                </h2>
+
+                <p class="sectionDescription">
+                    Look back at the feelings you've checked in with.
+                </p>
+
+
+                <div id="historySummary"></div>
+
+                <div id="historyEntries"></div>
 
 
                 <button
                     class="backButton"
-                    onclick="goBack()"
+                    onclick="clearHistory()"
                 >
-                    ← Check in again
+                    🗑️ Clear History
                 </button>
 
             </section>
 
-        </section>
 
 
-        <!-- JOURNAL PAGE -->
+            <!-- =========================================
+                 TOOLS
+                 ========================================= -->
 
-        <section
-            id="journalPage"
-            class="page hidden"
-        >
-
-            <h2>
-                Your Journal
-            </h2>
-
-            <p class="sectionDescription">
-                Write whatever is on your mind.
-                Your entries are saved in this browser.
-            </p>
-
-
-            <textarea
-                id="journalInput"
-                rows="7"
-                placeholder="Write what's on your mind..."
-            ></textarea>
-
-
-            <br>
-
-
-            <button
-                class="backButton newEntryButton"
-                onclick="saveJournalEntry()"
+            <section
+                id="toolsPage"
+                class="page hidden"
             >
-                💾 Save Entry
-            </button>
+
+                <h2>
+                    Your Tools 🧰
+                </h2>
+
+                <p class="sectionDescription">
+                    Small things you can use when you need a moment.
+                </p>
 
 
-            <div id="journalEntries"></div>
+                <div class="toolGrid">
 
-        </section>
+                    <button onclick="startCalmExercise()">
+                        🌿 Calm Exercise
+                    </button>
 
+                    <button onclick="showReflectionPrompt()">
+                        💭 Reflection
+                    </button>
 
-        <!-- HISTORY PAGE -->
+                    <button onclick="showJournalPrompt()">
+                        📝 Journal Prompt
+                    </button>
 
-        <section
-            id="historyPage"
-            class="page hidden"
-        >
+                    <button onclick="showFaithTool()">
+                        🙏 Faith Reflection
+                    </button>
 
-            <h2>
-                Your Check-In History
-            </h2>
-
-            <p class="sectionDescription">
-                Look back at the feelings you've checked in with.
-                This information stays in this browser.
-            </p>
-
-
-            <div id="historyEntries"></div>
+                </div>
 
 
-            <button
-                class="backButton"
-                onclick="clearHistory()"
+                <div
+                    id="toolOutput"
+                    class="toolOutput hidden"
+                ></div>
+
+            </section>
+
+
+
+            <!-- =========================================
+                 SUPPORT
+                 ========================================= -->
+
+            <section
+                id="supportPage"
+                class="page hidden"
             >
-                🗑️ Clear History
-            </button>
 
-        </section>
+                <h2>
+                    You Don't Have To Handle Everything Alone
+                </h2>
 
-
-        <!-- SUPPORT PAGE -->
-
-        <section
-            id="supportPage"
-            class="page hidden"
-        >
-
-            <h2>
-                You Don't Have To Handle Everything Alone
-            </h2>
-
-            <p class="sectionDescription">
-                Sometimes the best next step is talking to a real person
-                who can listen and support you.
-            </p>
-
-
-            <div class="supportCard">
-
-                <h3>
-                    🤝 Talk to Someone You Trust
-                </h3>
-
-                <p>
-                    A parent, guardian, teacher, counselor,
-                    pastor, mentor, relative, or another trusted
-                    person can help you through a difficult moment.
-                </p>
-
-            </div>
-
-
-            <div class="supportCard">
-
-                <h3>
-                    ❤️ Need Help Right Now?
-                </h3>
-
-                <p>
-                    If you feel like you may be in immediate danger
-                    or might hurt yourself, seek immediate help from
-                    a trusted adult or emergency service rather than
-                    trying to handle the situation alone.
+                <p class="sectionDescription">
+                    Sometimes the best next step is talking to a real
+                    person who can listen and support you.
                 </p>
 
 
-                <a
-                    class="resourceButton"
-                    href="https://988lifeline.org/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Visit 988 Lifeline
-                </a>
+                <div class="supportCard">
 
-            </div>
+                    <h3>
+                        🤝 Talk to Someone You Trust
+                    </h3>
 
-        </section>
+                    <p>
+                        A parent, guardian, teacher, counselor,
+                        pastor, mentor, relative, or another trusted
+                        person can help you through a difficult moment.
+                    </p>
 
-
-        <!-- RESOURCES PAGE -->
-
-        <section
-            id="resourcesPage"
-            class="page hidden"
-        >
-
-            <h2>
-                Resources
-            </h2>
-
-            <p class="sectionDescription">
-                Helpful places to find support, information,
-                and encouragement.
-            </p>
+                </div>
 
 
-            <div class="supportCard">
+                <div class="supportCard">
 
-                <h3>
-                    📞 988 Suicide & Crisis Lifeline
-                </h3>
+                    <h3>
+                        ❤️ Need Help Right Now?
+                    </h3>
 
-                <p>
-                    Free, confidential crisis support is available
-                    by call, text, or chat in the United States.
+                    <p>
+                        If you're in immediate danger or feel you may
+                        hurt yourself, reach out to a trusted adult
+                        or emergency service rather than handling
+                        the situation alone.
+                    </p>
+
+
+                    <a
+                        class="resourceButton"
+                        href="https://988lifeline.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Visit 988 Lifeline
+                    </a>
+
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================================
+                 RESOURCES
+                 ========================================= -->
+
+            <section
+                id="resourcesPage"
+                class="page hidden"
+            >
+
+                <h2>
+                    Resources
+                </h2>
+
+                <p class="sectionDescription">
+                    Helpful places to find support and information.
                 </p>
 
 
-                <a
-                    class="resourceButton"
-                    href="https://988lifeline.org/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Open 988 Lifeline
-                </a>
+                <div class="supportCard">
 
-            </div>
+                    <h3>
+                        📞 988 Suicide & Crisis Lifeline
+                    </h3>
 
-
-            <div class="supportCard">
-
-                <h3>
-                    🧠 Mental Health Information
-                </h3>
-
-                <p>
-                    Learn more about mental health and find information
-                    about getting support.
-                </p>
+                    <p>
+                        Free, confidential crisis support is available
+                        by call, text, or chat in the United States.
+                    </p>
 
 
-                <a
-                    class="resourceButton"
-                    href="https://www.nimh.nih.gov/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Visit NIMH
-                </a>
+                    <a
+                        class="resourceButton"
+                        href="https://988lifeline.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Open 988 Lifeline
+                    </a>
 
-            </div>
+                </div>
 
 
-            <div class="supportCard">
+                <div class="supportCard">
 
-                <h3>
-                    🙏 Faith & Reflection
-                </h3>
+                    <h3>
+                        🧠 Mental Health Information
+                    </h3>
 
-                <p>
-                    If faith is important to you, Still Here can provide
-                    encouragement based on the faith option you selected.
-                    You can also explore your own religious community
-                    for guidance and connection.
-                </p>
+                    <p>
+                        Learn more about mental health and finding support.
+                    </p>
 
-            </div>
 
-        </section>
+                    <a
+                        class="resourceButton"
+                        href="https://www.nimh.nih.gov/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        Visit NIMH
+                    </a>
 
-    </main>
+                </div>
+
+            </section>
+
+
+
+            <!-- =========================================
+                 SETTINGS
+                 ========================================= -->
+
+            <section
+                id="settingsPage"
+                class="page hidden"
+            >
+
+                <h2>
+                    Settings ⚙️
+                </h2>
+
+
+                <div class="settingsCard">
+
+                    <h3>
+                        👤 Account
+                    </h3>
+
+                    <p>
+                        Signed in as:
+                        <strong id="settingsUsername">
+                            Guest
+                        </strong>
+                    </p>
+
+                </div>
+
+
+                <div class="settingsCard">
+
+                    <h3>
+                        🔔 Notifications
+                    </h3>
+
+                    <button
+                        class="primaryButton"
+                        onclick="requestNotifications()"
+                    >
+                        Enable Notifications
+                    </button>
+
+                    <label class="settingRow">
+
+                        <span>
+                            Daily reminder
+                        </span>
+
+                        <input
+                            id="dailyReminderToggle"
+                            type="checkbox"
+                            onchange="saveNotificationSetting()"
+                        >
+
+                    </label>
+
+
+                    <label class="settingRow">
+
+                        <span>
+                            Encouragement notifications
+                        </span>
+
+                        <input
+                            id="encouragementToggle"
+                            type="checkbox"
+                            onchange="saveNotificationSetting()"
+                        >
+
+                    </label>
+
+
+                    <label class="settingRow">
+
+                        <span>
+                            Reminder time
+                        </span>
+
+                        <input
+                            id="notificationTime"
+                            type="time"
+                            value="19:00"
+                            onchange="saveNotificationSetting()"
+                        >
+
+                    </label>
+
+                </div>
+
+
+                <div class="settingsCard">
+
+                    <h3>
+                        🎨 Appearance
+                    </h3>
+
+                    <button
+                        class="secondaryButton"
+                        onclick="toggleDarkMode()"
+                    >
+                        🌙 Toggle Dark Mode
+                    </button>
+
+                </div>
+
+
+                <div class="settingsCard">
+
+                    <h3>
+                        🔐 Privacy & Data
+                    </h3>
+
+                    <p>
+                        Your current local journal and check-in
+                        information is stored in this browser.
+                    </p>
+
+
+                    <button
+                        class="dangerButton"
+                        onclick="clearAllLocalData()"
+                    >
+                        Delete Local Data
+                    </button>
+
+                </div>
+
+
+                <div class="settingsCard">
+
+                    <h3>
+                        ❤️ Still Here
+                    </h3>
+
+                    <p>
+                        Built to give people a place to pause,
+                        reflect, and find support.
+                    </p>
+
+                    <p class="smallText">
+                        Version 1.0
+                    </p>
+
+                </div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
 
 
     <!-- JAVASCRIPT -->
